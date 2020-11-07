@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2020, ARM Limited. All rights reserved.
+# Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -244,6 +244,7 @@ SDEI_IN_FCONF			:= 0
 
 # Build option to support Secure Interrupt descriptors through fconf
 SEC_INT_DESC_IN_FCONF		:= 0
+USE_FCONF_BASED_IO		:= 0
 
 # Build option to choose whether Trusted Firmware uses library at ROM
 USE_ROMLIB			:= 0
