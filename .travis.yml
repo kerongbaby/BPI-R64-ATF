@@ -23,7 +23,7 @@ install:
 script:
 #    - export PATH=/usr/lib/ccache:$PATH
     - bash build.sh
-#    - bash build.sh rename
+    - bash build.sh rename
 #    - sed -i 's/#\(DEVICE=emmc\)/\1/' build.conf
 #    - bash build.sh
 #    - bash build.sh rename
