@@ -1,0 +1,46 @@
+language: c
+compiler:
+    - gcc
+sudo: required
+dist: bionic
+cache: ccache
+
+git:
+  depth: 10
+  quiet: false
+  
+if: tag IS blank
+
+#branches:
+#  only:
+#    - /^.*-r64$/
+
+install:
+    - sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu bionic main'
+    - sudo apt-get update -qq
+#    - sudo apt-get install -qq libssl-dev u-boot-tools python-mako debhelper fakeroot gcc-arm-linux-gnueabihf gcc-aarch64-linux-gnu make
+    - sudo apt-get install -qq gcc-aarch64-linux-gnu make
+script:
+#    - export PATH=/usr/lib/ccache:$PATH
+    - bash build.sh
+#    - bash build.sh rename
+#    - sed -i 's/#\(DEVICE=emmc\)/\1/' build.conf
+#    - bash build.sh
+#    - bash build.sh rename
+before_deploy:
+    # Set up git user name and tag this commit
+    - git config --local user.name "Frank Wunderlich"
+    - git config --local user.email "frank-w@public-files.de"
+    - export TRAVIS_TAG=${TRAVIS_TAG:-"CI-BUILD-$(date +'%Y%m%d_%H%M%S')-$(git log --format=%h -1)"}
+    - git tag $TRAVIS_TAG
+deploy:
+    provider: releases
+    api_key: $GITHUB_TOKEN
+    file_glob: true
+    file:
+    - "./build/mt7622/release/bl2*.img"
+    - "./build/mt7622/release/fip*.bin"
+    name: $TRAVIS_BRANCH-$(date +'%Y%m%d%H%M%S')
+    skip_cleanup: true
+    on:
+        all_branches: true
