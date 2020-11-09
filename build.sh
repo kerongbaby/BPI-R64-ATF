@@ -11,6 +11,10 @@ case $1 in
 	"upload")
 		scp ./build/mt7622/release/{bl2.img,fip.bin} bpi-r64.gpt $uploaduser@$uploadserver:$uploaddir
 	;;
+	"rename")
+		mv ./build/mt7622/release/bl2{,_$DEVICE}.img
+		mv ./build/mt7622/release/fip{,_$DEVICE}.bin
+	;;
 	"")
 		echo "device: $DEVICE"
 		if [[ -e u-boot.bin ]];then
