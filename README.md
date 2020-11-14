@@ -1,5 +1,9 @@
 # ATF for Bananapi-R64
 
+currently only emmc is supported!
+
+sdmmc version can be built,but does not boot (only bootrom output) and BRLYT-header in bl2.img conflicts with gpt (0x200)
+
 ## requirements
 
 On a x86/x64-host you need cross compile tools for the arm64 architecture
@@ -55,7 +59,7 @@ Device         Start   End Sectors   Size Type
 
 needs option CONFIG_SUPPORT_EMMC_BOOT=y in installed uboot (sdcard) for "mmc partconf"!
 
-currently BL2 does not work and only emmc is supported!
+### eMMC
 
 ```sh
 #flash bl2
