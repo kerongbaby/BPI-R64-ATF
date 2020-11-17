@@ -85,8 +85,9 @@ if tftp ${loadaddr} ${serverip}:fip.bin;then mmc erase 0x800 0x1000;mmc write ${
 
 ### SD
 ```sh
-sudo dd if=sd_header.bin of=/dev/sdb bs=512 seek=0
-sudo dd if=bpi-r64.gpt of=/dev/sdb bs=512 skip=1 seek=1
-sudo dd if=build/mt7622/release/bl2.img of=/dev/sdb bs=512 seek=1024
-sudo dd if=build/mt7622/release/fip.bin of=/dev/sdb bs=512 seek=2048
+target=/dev/sdb
+sudo dd if=sd_header.bin of=$target bs=512 seek=0
+sudo dd if=bpi-r64.gpt of=$target bs=512 skip=1 seek=1
+sudo dd if=build/mt7622/release/bl2.img of=$target bs=512 seek=1024
+sudo dd if=build/mt7622/release/fip.bin of=$target bs=512 seek=2048
 ```
