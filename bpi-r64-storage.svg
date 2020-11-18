@@ -27,7 +27,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="281.24824"
-     inkscape:cy="357.0941"
+     inkscape:cy="63.453434"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -229,5 +229,83 @@
        id="path885"
        d="M 72.520403,235.02568 H 135.224"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 72.520403,245.60908 H 135.224"
+       id="path851"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path853"
+       d="M 72.520403,255.66331 H 135.224"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="44.979168"
+       y="236.5238"
+       id="text857"><tspan
+         sodipodi:role="line"
+         id="tspan855"
+         x="44.979168"
+         y="236.5238"
+         style="stroke-width:0.26458332">6144 (0x1800)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="90.336304"
+       y="241.4375"
+       id="text861"><tspan
+         sodipodi:role="line"
+         id="tspan859"
+         x="90.336304"
+         y="241.4375"
+         style="stroke-width:0.26458332">config (uboot-env)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="44.979156"
+       y="246.72917"
+       id="text865"><tspan
+         sodipodi:role="line"
+         id="tspan863"
+         x="44.979156"
+         y="246.72917"
+         style="stroke-width:0.26458332">7168 (0x1C00)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="87.3125"
+       y="252.3988"
+       id="text869"><tspan
+         sodipodi:role="line"
+         id="tspan867"
+         x="87.3125"
+         y="252.3988"
+         style="stroke-width:0.26458332">rf (calibration data)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="45.054752"
+       y="255.42262"
+       id="text873"><tspan
+         sodipodi:role="line"
+         id="tspan871"
+         x="45.054752"
+         y="255.42262"
+         style="stroke-width:0.26458332">8192 (0x2000)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="99.180969"
+       y="262.60416"
+       id="text877"><tspan
+         sodipodi:role="line"
+         id="tspan875"
+         x="99.180969"
+         y="262.60416"
+         style="stroke-width:0.26458332">kernel</tspan></text>
   </g>
 </svg>
