@@ -38,8 +38,8 @@ deploy:
     api_key: $GITHUB_TOKEN
     file_glob: true
     file:
-    - "./build/mt7622/release/bl2*.img"
-    - "./build/mt7622/release/fip*.bin"
+    - "./bl2*.img"
+    - "./fip*.bin"
     name: $TRAVIS_BRANCH-$(date +'%Y%m%d%H%M%S')
     skip_cleanup: true
     on:
