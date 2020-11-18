@@ -24,9 +24,9 @@ script:
 #    - export PATH=/usr/lib/ccache:$PATH
     - bash build.sh
     - bash build.sh rename
-#    - sed -i 's/#\(DEVICE=emmc\)/\1/' build.conf
-#    - bash build.sh
-#    - bash build.sh rename
+    - sed -i 's/#\(DEVICE=emmc\)/\1/' build.conf
+    - bash build.sh
+    - bash build.sh rename
 before_deploy:
     # Set up git user name and tag this commit
     - git config --local user.name "Frank Wunderlich"
