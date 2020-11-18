@@ -12,14 +12,18 @@ case $1 in
 		scp ./build/mt7622/release/{bl2.img,fip.bin} bpi-r64.gpt $uploaduser@$uploadserver:$uploaddir
 	;;
 	"rename")
+		set -x
 		mv ./build/mt7622/release/bl2{,_$DEVICE}.img
 		mv ./build/mt7622/release/fip{,_$DEVICE}.bin
+		set +x
+	;;
+	"clean")
+		make distclean
 	;;
 	"")
 		echo "device: $DEVICE"
 		if [[ -e u-boot.bin ]];then
 			set -x
-			make distclean
 			make PLAT=mt7622 BL33=u-boot.bin BOOT_DEVICE=$DEVICE all fip
 			set +x
 		else
