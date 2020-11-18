@@ -4,6 +4,8 @@ currently only emmc is supported!
 
 sdmmc version can be built,but does not boot (only bootrom output) and BRLYT-header in bl2.img conflicts with gpt (0x200)
 
+<img src="bpi-r64-storage.svg">
+
 ## requirements
 
 On a x86/x64-host you need cross compile tools for the arm64 architecture
