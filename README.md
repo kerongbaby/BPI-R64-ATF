@@ -91,3 +91,12 @@ sudo dd if=bpi-r64.gpt of=$target bs=512 skip=1 seek=1
 sudo dd if=build/mt7622/release/bl2.img of=$target bs=512 seek=1024
 sudo dd if=build/mt7622/release/fip.bin of=$target bs=512 seek=2048
 ```
+
+## strip own gpt
+
+without first 512 bytes (gpt only, like bpi-r64_headless.bin):
+
+```sh
+npart=4;sudo dd if=/dev/sdb of=bpi-r64_headless.gpt bs=1 skip=512 count=$(( $npart*128 +1024 ))
+```
+change npart to number of partitions in your GPT
