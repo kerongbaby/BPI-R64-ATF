@@ -13,8 +13,8 @@ case $1 in
 	;;
 	"rename")
 		set -x
-		mv ./build/mt7622/release/bl2{,_$DEVICE}.img
-		mv ./build/mt7622/release/fip{,_$DEVICE}.bin
+		mv ./build/mt7622/release/bl2.img ./bl2_$DEVICE.img
+		mv ./build/mt7622/release/fip.bin ./fip_$DEVICE.bin
 		set +x
 	;;
 	"clean")
@@ -23,6 +23,7 @@ case $1 in
 	"")
 		echo "device: $DEVICE"
 		if [[ -e u-boot.bin ]];then
+			make distclean
 			set -x
 			make PLAT=mt7622 BL33=u-boot.bin BOOT_DEVICE=$DEVICE all fip
 			set +x
