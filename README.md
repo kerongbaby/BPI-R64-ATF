@@ -1,8 +1,6 @@
 # ATF for Bananapi-R64
 
-currently only emmc is supported!
-
-sdmmc version can be built,but does not boot (only bootrom output) and BRLYT-header in bl2.img conflicts with gpt (0x200)
+<img src="bpi-r64-storage.svg">
 
 ## requirements
 
