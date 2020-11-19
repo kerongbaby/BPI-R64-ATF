@@ -34,3 +34,8 @@ GPATH
 GRTAGS
 GSYMS
 GTAGS
+
+bl2_emmc.img
+bl2_sdmmc.img
+fip_emmc.bin
+fip_sdmmc.bin
