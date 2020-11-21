@@ -98,3 +98,19 @@ without first 512 bytes (gpt only, like bpi-r64_headless.bin):
 npart=4;sudo dd if=/dev/sdb of=bpi-r64_headless.gpt bs=1 skip=512 count=$(( $npart*128 +1024 ))
 ```
 change npart to number of partitions in your GPT
+
+## booting linux kernel
+
+### booting fit-image
+
+my kernel-repo creates for r64 (arch=arm64) also an FIT-Image (*.itb) which needs to be uploaded to tftp
+
+```sh
+setenv serverip 192.168.0.10
+setenv loadaddr 0x44000000
+tftp ${loadaddr} bpi-r64-5.4.77-main.itb
+bootm ${loadaddr}
+```
+
+as there is no rootfs yet you need a initramfs for repair the GPT (fdisk reports "warning: GPT array CRC is invalid" i guess because of backup GPT missing in last block of emmc)
+tried to fix with fdisk,gdisk and parted, no luck...only SIGSEV. seems like gpt contains wrong disk-size and backup-header is missing
