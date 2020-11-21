@@ -72,10 +72,11 @@ mmc partconf 0 1 1 0
 ```sh
 #mmc partconf 0 1 1 0
 setenv loadaddr 0x44000000
+setenv serverip 192.168.0.10
 #write emmc_header
-if tftp ${loadaddr} ${serverip}:emmc_header.bin ;then mmc erase 0x0 0x400;mmc write ${loadaddr} 0x0 0x400;fi
+if tftp ${loadaddr} ${serverip}:emmc_header.bin ;then mmc erase 0x0 0x400;mmc write ${loadaddr} 0x0 0x1;fi
 #write gpt
-if tftp ${loadaddr} ${serverip}:bpi-r64_headless.gpt;mmc write ${loadaddr} 0x1 0x3FF; fi
+if tftp ${loadaddr} ${serverip}:bpi-r64_headless.gpt;then mmc write ${loadaddr} 0x1 0x3FF; fi
 #write fip
 if tftp ${loadaddr} ${serverip}:fip_emmc.bin;then mmc erase 0x800 0x1000;mmc write ${loadaddr} 0x800 0x1000;fi
 ```
