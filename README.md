@@ -32,27 +32,21 @@ built binaries:
 
 new GPT with BPI-BOOT/BPI-ROOT (headless)
 ```
-Disk /dev/mmcblk0: 7.3 GiB, 7818182656 bytes, 15269888 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: gpt
-Disk identifier: 2BD17853-102B-4500-AA1A-8A21D4D7984D
+root@bpi-r64:~# gdisk /dev/mmcblk0
 
-Device         Start   End Sectors   Size Type
-/dev/sdb1    2048     6143     4096    2M Linux filesystem #fip 0x800 (len 0x1000)
-/dev/sdb2    6144     7167     1024  512K Linux filesystem #config (uboot-env) 0x1800 (len 0x400), unused
-/dev/sdb3    7168     8191     1024  512K Linux filesystem #rf (calibration data), unused
-/dev/sdb4    8192   212991   204800  100M Microsoft basic data #BPI_BOOT for kernel/dtb
-/dev/sdb5  212992 15947775 15734784  7,5G Linux filesystem #BPI-ROOT for rootfs
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048            6143   2.0 MiB     8300  fip #BL31+uboot 0x800 (len 0x1000)
+   2            6144            7167   512.0 KiB   8300  config #uboot-env 0x1800 (len 0x400), unused
+   3            7168            8191   512.0 KiB   8300  rf #calibration data, unused
+   4            8192          212991   100.0 MiB   0700  kernel #BPI_BOOT for kernel/dtb/FIT
+   5          212992        15269854   7.2 GiB     8300  root #BPI-ROOT for rootfs
 
-/dev/sdb: PTUUID="2bd17853-102b-4500-aa1a-8a21d4d7984d" PTTYPE="gpt"
-/dev/sdb1: PARTLABEL="fip" PARTUUID="18de6587-4f17-4e08-a6c9-d9d3d424f4c5"
-/dev/sdb2: PARTLABEL="config" PARTUUID="19a4763a-6b19-4a4b-a0c4-8cc34f4c2ab9"
-/dev/sdb3: PARTLABEL="rf" PARTUUID="8142c1b2-1697-41d9-b1bf-a88d76c7213f"
-/dev/sdb4: LABEL_FATBOOT="BPI_BOOT" LABEL="BPI_BOOT" UUID="D834-B456" TYPE="vfat" PARTLABEL="kernel" PARTUUID="94db3945-4694-4c68-8304-c94dd92099f8"
-/dev/sdb5: LABEL="BPI-ROOT" UUID="f579f4e1-2593-4e72-887c-e75059f0b7f2" TYPE="ext4" PARTLABEL="root" PARTUUID="c9223fca-b686-4ec9-8bdc-6bdb85f0d7ae"
-
+/dev/mmcblk0: PTUUID="2bd17853-102b-4500-aa1a-8a21d4d7984d" PTTYPE="gpt"
+/dev/mmcblk0p1: PARTLABEL="fip" PARTUUID="18de6587-4f17-4e08-a6c9-d9d3d424f4c5"
+/dev/mmcblk0p2: PARTLABEL="config" PARTUUID="19a4763a-6b19-4a4b-a0c4-8cc34f4c2ab9"
+/dev/mmcblk0p3: PARTLABEL="rf" PARTUUID="8142c1b2-1697-41d9-b1bf-a88d76c7213f"
+/dev/mmcblk0p4: PARTLABEL="kernel" PARTUUID="971f7556-ef1a-44cd-8b28-0cf8100b9c7e"
+/dev/mmcblk0p5: PARTLABEL="root" PARTUUID="c0cb3022-76d5-42d6-a370-fd1c5594f2b2"
 ```
 ## Install
 
@@ -112,5 +106,4 @@ tftp ${loadaddr} bpi-r64-5.4.77-main.itb
 bootm ${loadaddr}
 ```
 
-as there is no rootfs yet you need a initramfs for repair the GPT (fdisk reports "warning: GPT array CRC is invalid" i guess because of backup GPT missing in last block of emmc)
-tried to fix with fdisk,gdisk and parted, no luck...only SIGSEV. seems like gpt contains wrong disk-size and backup-header is missing
+as there is no rootfs yet you need a initramfs to create filesystem on emmc
