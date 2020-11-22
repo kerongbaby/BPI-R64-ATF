@@ -17,6 +17,26 @@ case $1 in
 		mv ./build/mt7622/release/fip.bin ./fip_$DEVICE.bin
 		set +x
 	;;
+	"img")
+		target=bpi-r64_$DEVICE.img
+		if [[ -e bl2_${DEVICE}.img ]] && [[ -e fip_${DEVICE}.bin ]];then
+		echo "creating $target"
+		dd of=$target if=/dev/zero bs=512 count=6144
+		echo "write header (first block)"
+		dd of=$target if=header_${DEVICE}.bin
+		echo "write GPT"
+		dd of=$target if=bpi-r64_headless.gpt bs=512 seek=1
+		if [[ $DEVICE == "sdmmc" ]];then
+			echo "write BL2"
+			dd of=$target if=bl2_${DEVICE}.img bs=512 seek=1024
+		fi
+		echo "write FIP (BL31+uboot)"
+		dd of=$target if=fip_${DEVICE}.bin bs=512 seek=2048
+		else
+			echo "error: bl2_${DEVICE}.img or fip_${DEVICE}.bin missing,"
+			echo "please use './build.sh rename' after build to create these files"
+		fi
+	;;
 	"clean")
 		make distclean
 	;;
