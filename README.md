@@ -68,7 +68,7 @@ mmc partconf 0 1 1 0
 setenv loadaddr 0x44000000
 setenv serverip 192.168.0.10
 #write emmc_header
-if tftp ${loadaddr} ${serverip}:emmc_header.bin ;then mmc erase 0x0 0x400;mmc write ${loadaddr} 0x0 0x1;fi
+if tftp ${loadaddr} ${serverip}:header_emmc.bin ;then mmc erase 0x0 0x400;mmc write ${loadaddr} 0x0 0x1;fi
 #write gpt
 if tftp ${loadaddr} ${serverip}:bpi-r64_headless.gpt;then mmc write ${loadaddr} 0x1 0x3FF; fi
 #write fip
@@ -78,10 +78,10 @@ if tftp ${loadaddr} ${serverip}:fip_emmc.bin;then mmc erase 0x800 0x1000;mmc wri
 ### SD via dd
 ```sh
 target=/dev/sdb
-sudo dd if=sd_header.bin of=$target bs=512 seek=0
-sudo dd if=bpi-r64_headless.gpt of=$target bs=512 seek=1
-sudo dd if=./bl2_sdmmc.img of=$target bs=512 seek=1024
-sudo dd if=./fip_sdmmc.bin of=$target bs=512 seek=2048
+sudo dd of=$target if=header_sdmmc.bin bs=512 seek=0
+sudo dd of=$target if=bpi-r64_headless.gpt bs=512 seek=1
+sudo dd of=$target if=./bl2_sdmmc.img bs=512 seek=1024
+sudo dd of=$target if=./fip_sdmmc.bin bs=512 seek=2048
 ```
 
 ## strip own gpt
