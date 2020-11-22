@@ -1,7 +1,7 @@
 language: c
 compiler:
     - gcc
-sudo: required
+os: linux
 dist: bionic
 cache: ccache
 
@@ -37,7 +37,7 @@ before_deploy:
     - git tag $TRAVIS_TAG
 deploy:
     provider: releases
-    api_key: $GITHUB_TOKEN
+    token: $GITHUB_TOKEN
     file_glob: true
     file:
     - "./bl2*.img"
@@ -45,5 +45,6 @@ deploy:
     - "./bpi-r64_*.img"
     name: $TRAVIS_BRANCH-$(date +'%Y%m%d%H%M%S')
     skip_cleanup: true
+    cleanup: false
     on:
         all_branches: true
