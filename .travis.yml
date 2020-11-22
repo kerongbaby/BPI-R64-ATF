@@ -24,9 +24,11 @@ script:
 #    - export PATH=/usr/lib/ccache:$PATH
     - bash build.sh
     - bash build.sh rename
+    - bash build.sh img
     - sed -i 's/#\(DEVICE=emmc\)/\1/' build.conf
     - bash build.sh
     - bash build.sh rename
+    - bash build.sh img
 before_deploy:
     # Set up git user name and tag this commit
     - git config --local user.name "Frank Wunderlich"
@@ -40,6 +42,7 @@ deploy:
     file:
     - "./bl2*.img"
     - "./fip*.bin"
+    - "./bpi-r64_*.img"
     name: $TRAVIS_BRANCH-$(date +'%Y%m%d%H%M%S')
     skip_cleanup: true
     on:
