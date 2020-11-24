@@ -59,11 +59,13 @@ needs option CONFIG_SUPPORT_EMMC_BOOT=y in installed uboot (sdcard) for "mmc par
 setenv ipaddr 192.168.0.19
 setenv serverip 192.168.0.11
 setenv loadaddr 0x44000000
+mmc dev 0
 mmc partconf 0 1 1 1
 if tftp ${loadaddr} ${serverip}:bl2_emmc.img;then mmc erase 0x0 0x400;mmc write ${loadaddr} 0x0 0x400;fi
 mmc partconf 0 1 1 0
 ```
 ```sh
+mmc dev 0
 #mmc partconf 0 1 1 0
 setenv loadaddr 0x44000000
 setenv serverip 192.168.0.10
