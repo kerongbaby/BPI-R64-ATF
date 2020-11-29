@@ -109,3 +109,20 @@ bootm ${loadaddr}
 ```
 
 as there is no rootfs yet you need a initramfs to create filesystem on emmc
+
+### create filesystem from running system
+
+```sh
+root@bpi-r64:~# mkfs.vfat -n "BPI-BOOT" /dev/mmcblk0p4
+root@bpi-r64:~# mkfs.ext4 -L "BPI-ROOT" /dev/mmcblk0p5
+```
+
+current u-boot binary supports variable "fit" in uEnv.txt, so put your itb in
+
+bananapi/bpi-r64/linux/ of /dev/mmcblk0p4
+
+and set this in this uEnv.txt:
+
+```
+fit=bpi-r64-5.4.77-main.itb
+```
