@@ -9,7 +9,7 @@ fi
 
 case $1 in
 	"upload")
-		scp {bl2_*.img,fip_*.bin} bpi-r64*.gpt *_header.bin $uploaduser@$uploadserver:$uploaddir
+		scp {bl2_*.img,fip_*.bin} bpi-r64*.gpt header_*.bin $uploaduser@$uploadserver:$uploaddir
 	;;
 	"rename")
 		set -x
