@@ -78,6 +78,21 @@ if tftp ${loadaddr} ${serverip}:fip_emmc.bin;then mmc erase 0x800 0x1000;mmc wri
 ```
 
 ### SD via dd
+
+## build and install img
+```sh
+#backup old bootchain
+sudo dd if=/dev/sdb of=atf-backup.img bs=512 count=6144
+#build new one
+./build.sh
+./build.sh rename
+./build.sh img
+#install new bootchain
+sudo dd if=bpi-r64_sdmmc.img of=/dev/sdb
+sync
+```
+
+## manual install parts
 ```sh
 target=/dev/sdb
 sudo dd of=$target if=header_sdmmc.bin bs=512 seek=0
