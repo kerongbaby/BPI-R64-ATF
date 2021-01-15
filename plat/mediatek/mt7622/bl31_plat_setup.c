@@ -78,7 +78,7 @@ uint32_t plat_get_spsr_for_bl32_entry(void)
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 				u_register_t arg2, u_register_t arg3)
 {
-	static console_16550_t console;
+	static console_t console;
 
 	console_16550_register(UART0_BASE, UART_CLOCK, UART_BAUDRATE,
 			       &console);

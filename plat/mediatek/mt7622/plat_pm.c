@@ -588,7 +588,7 @@ int plat_validate_power_state(unsigned int power_state,
 
 void mtk_system_pwr_domain_resume(void)
 {
-	static console_16550_t console;
+	static console_t console;
 
 	console_16550_register(UART0_BASE, UART_CLOCK, UART_BAUDRATE, &console);
 

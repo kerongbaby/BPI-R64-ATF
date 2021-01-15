@@ -314,7 +314,7 @@ int plat_get_image_source(unsigned int image_id,
 void bl2_el3_early_platform_setup(u_register_t arg0, u_register_t arg1,
 				  u_register_t arg2, u_register_t arg3)
 {
-	static console_16550_t console;
+	static console_t console;
 
 	/* Reset UART HIGHSPEED to 0 */
 	mmio_write_16(UART0_BASE + 0x24, 0);
