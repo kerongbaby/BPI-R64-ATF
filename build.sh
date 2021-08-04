@@ -30,8 +30,6 @@ case $1 in
 			echo "write BL2"
 			dd of=$target if=bl2_${DEVICE}.img bs=512 seek=1024
 		fi
-		echo "write FIP (BL31+uboot)"
-		dd of=$target if=fip_${DEVICE}.bin bs=512 seek=2048
 		else
 			echo "error: bl2_${DEVICE}.img or fip_${DEVICE}.bin missing,"
 			echo "please use './build.sh rename' after build to create these files"
