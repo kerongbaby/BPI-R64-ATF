@@ -212,6 +212,8 @@ void bl1_print_next_bl_ep_info(const entry_point_info_t *bl_ep_info)
 #else
 	NOTICE("BL1: Booting BL32\n");
 #endif /* __aarch64__ */
+	NOTICE("bl1_print_next_bl_ep_info");
+
 	print_entry_point_info(bl_ep_info);
 }
 

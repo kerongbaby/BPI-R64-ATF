@@ -11,6 +11,30 @@
 #include <common/debug.h>
 #include <plat/common/platform.h>
 
+#if 0
+typedef struct {
+	console_t console;
+	uintptr_t base;
+} console_16550_t;
+
+extern int console_16550_putc(int c, console_16550_t *console);
+
+int xputc(char c) {
+	static console_16550_t console;
+	int x = (int)c;
+    console_16550_putc(x, &console);
+	return 0;
+}
+
+int xputp(void *p) {
+	char buf[64];
+	return snprintf(buf, sizeof(buf), "%p", p);
+	int i;
+	for(i = 0; i < 16; i++)
+	 xputc(buf[i]);
+	return 0;
+}
+#endif
 /* Set the default maximum log level to the `LOG_LEVEL` build flag */
 static unsigned int max_log_level = LOG_LEVEL;
 

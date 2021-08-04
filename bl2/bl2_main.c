@@ -133,6 +133,7 @@ void bl2_main(void)
 	pauth_disable_el3();
 #endif /* ENABLE_PAUTH */
 
+	NOTICE("BL2:  bl2_run_next_image\n");
 	bl2_run_next_image(next_bl_ep_info);
 #endif /* BL2_AT_EL3 */
 }

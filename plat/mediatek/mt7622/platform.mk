@@ -232,6 +232,7 @@ endif
 
 $(BUILD_PLAT)/bl2.img: $(BUILD_PLAT)/bl2.bin $(DOIMAGETOOL)
 	-$(Q)rm -f $@.signkeyhash
+##	@cp ~/targets/install/bin/redboot.bin $(BUILD_PLAT)/bl2.bin
 	$(Q)$(DOIMAGETOOL) -f $(BROM_HEADER_TYPE) -a $(BL2_BASE) -d -e		\
 		$(if $(BROM_SIGN_KEY), -s sha256+rsa-m1 -k $(BROM_SIGN_KEY))	\
 		$(if $(BROM_SIGN_KEY), -p $@.signkeyhash)			\

@@ -176,6 +176,7 @@ func smc_handler64
 	mov	x20, x1
 
 	mov	x0, x20
+	// TODO: here to load BL31
 	bl	bl1_print_next_bl_ep_info
 
 	ldp	x0, x1, [x20, #ENTRY_POINT_INFO_PC_OFFSET]

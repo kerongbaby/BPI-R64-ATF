@@ -199,9 +199,13 @@ void __init bl31_prepare_next_image_entry(void)
 
 	INFO("BL31: Preparing for EL3 exit to %s world\n",
 		(image_type == SECURE) ? "secure" : "normal");
+	NOTICE("bl31_prepare_next_image_entry 1\n");
 	print_entry_point_info(next_image_info);
+	NOTICE("bl31_prepare_next_image_entry 2\n");
 	cm_init_my_context(next_image_info);
+	NOTICE("bl31_prepare_next_image_entry 3\n");
 	cm_prepare_el3_exit(image_type);
+	NOTICE("bl31_prepare_next_image_entry 4\n");
 }
 
 /*******************************************************************************

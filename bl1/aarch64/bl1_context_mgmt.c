@@ -89,6 +89,7 @@ void bl1_prepare_next_image(unsigned int image_id)
 
 	/* Indicate that image is in execution state. */
 	image_desc->state = IMAGE_STATE_EXECUTED;
+	NOTICE("bl1_prepare_next_image");
 
 	print_entry_point_info(next_bl_ep);
 }

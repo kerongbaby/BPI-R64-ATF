@@ -251,11 +251,14 @@ int load_auth_image(unsigned int image_id, image_info_t *image_data)
  ******************************************************************************/
 void print_entry_point_info(const entry_point_info_t *ep_info)
 {
+	NOTICE("Entry point address = 0x%lx\n", ep_info->pc);
+	NOTICE("SPSR = 0x%x\n", ep_info->spsr);
+
 	INFO("Entry point address = 0x%lx\n", ep_info->pc);
 	INFO("SPSR = 0x%x\n", ep_info->spsr);
 
 #define PRINT_IMAGE_ARG(n)					\
-	VERBOSE("Argument #" #n " = 0x%llx\n",			\
+	NOTICE("Argument #" #n " = 0x%llx\n",			\
 		(unsigned long long) ep_info->args.arg##n)
 
 	PRINT_IMAGE_ARG(0);
@@ -269,4 +272,5 @@ void print_entry_point_info(const entry_point_info_t *ep_info)
 	PRINT_IMAGE_ARG(7);
 #endif
 #undef PRINT_IMAGE_ARG
+	NOTICE("end print_entry_point_info\n");
 }

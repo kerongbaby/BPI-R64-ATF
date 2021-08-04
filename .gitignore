@@ -39,3 +39,4 @@ bl2_emmc.img
 bl2_sdmmc.img
 fip_emmc.bin
 fip_sdmmc.bin
+bpi-r64_sdmmc.img

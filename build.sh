@@ -44,7 +44,7 @@ case $1 in
 		echo "device: $DEVICE"
 		if [[ -e u-boot.bin ]];then
 			make distclean
-			set -x
+			set -e
 			make PLAT=mt7622 BL33=u-boot.bin BOOT_DEVICE=$DEVICE all fip
 			set +x
 		else
