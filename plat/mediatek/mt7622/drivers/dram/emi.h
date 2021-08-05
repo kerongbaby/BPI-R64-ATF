@@ -142,6 +142,7 @@ struct emi_settings {
 
 int complex_mem_test(uintptr_t start, unsigned long len);
 void mtk_set_emi_dram(void);
+void mtk_set_emi_dram_wrap(void);
 void mtk_mem_init(void);
 
 #endif
