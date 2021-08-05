@@ -64,6 +64,7 @@ DRAM_LIBS		:=	${MTK_PLAT_SOC}/drivers/dram/release/dramc_calib.o	\
 				${MTK_PLAT_SOC}/drivers/dram/release/emi.o		\
 				${MTK_PLAT_SOC}/drivers/dram/release/memory.o
 endif
+BL2_SOURCES		+=	${MTK_PLAT_SOC}/drivers/dram/emi.c	\
 
 
 ifndef BOOT_DEVICE
