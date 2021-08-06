@@ -274,10 +274,10 @@ void bl2_platform_setup(void)
 	mtk_pll_init();
 	mtk_pwrap_init();
 	mtk_pmic_init();
-//	mtk_mem_init();
-    mtk_set_emi_dram();
+	mtk_mem_init();
+//    mtk_set_emi_dram_wrap();
    if(complex_mem_test(0x40000000, 0x2000) != 0)
-      NOTICE("panic_msg");
+      NOTICE("bl2_platform_setup panic\n");
 
 	mtk_io_setup();
 }
