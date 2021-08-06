@@ -425,3 +425,5 @@ void mtk_set_emi_dram_wrap(void) {
   return;
 }
 
+// "EMI: The DRAM type is not supported"
+// "EMI: DRAM type error: %d"
