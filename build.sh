@@ -12,7 +12,7 @@ case $1 in
 		scp {bl2_*.img,fip_*.bin} bpi-r64*.gpt header_*.bin $uploaduser@$uploadserver:$uploaddir
 	;;
 	"rename")
-		set -x
+		set -e
 		mv ./build/mt7622/release/bl2.img ./bl2_$DEVICE.img
 		mv ./build/mt7622/release/fip.bin ./fip_$DEVICE.bin
 		set +x
@@ -30,6 +30,8 @@ case $1 in
 			echo "write BL2"
 			dd of=$target if=bl2_${DEVICE}.img bs=512 seek=1024
 		fi
+		echo "write FIP (BL31+uboot)"
+		dd of=$target if=fip_${DEVICE}.bin bs=512 seek=2048
 		else
 			echo "error: bl2_${DEVICE}.img or fip_${DEVICE}.bin missing,"
 			echo "please use './build.sh rename' after build to create these files"
@@ -40,10 +42,10 @@ case $1 in
 	;;
 	"")
 		echo "device: $DEVICE"
-		if [[ -e u-boot.bin ]];then
+		if [[ -e ~/targets/install/bin/redboot.bin ]];then
 			make distclean
 			set -e
-			make PLAT=mt7622 BL33=u-boot.bin BOOT_DEVICE=$DEVICE all fip
+			make PLAT=mt7622 BL33=~/targets/install/bin/redboot.bin BOOT_DEVICE=$DEVICE all fip
 			set +x
 		else
 			echo "u-boot.bin missing!"
