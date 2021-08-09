@@ -45,7 +45,7 @@ int arm_execution_state_switch(unsigned int smc_fid,
 	entry_point_info_t ep;
 	cpu_context_t *ctx = (cpu_context_t *) handle;
 	el3_state_t *el3_ctx = get_el3state_ctx(ctx);
-
+	NOTICE("arm_execution_state_switch\n");
 	/* Validate supplied entry point */
 	pc = (u_register_t) (((uint64_t) pc_hi << 32) | pc_lo);
 	if (arm_validate_ns_entrypoint(pc) != 0)

@@ -80,7 +80,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	static console_16550_t console;
 
-	console_16550_register(UART0_BASE, UART_CLOCK, UART_BAUDRATE,
+	console_16550_register(UART0_BASE, 0 /* UART_CLOCK */, UART_BAUDRATE,
 			       &console);
 
 	/* FIXME: Configure L2 size? */
