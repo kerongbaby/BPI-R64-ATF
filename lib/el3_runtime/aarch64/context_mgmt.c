@@ -70,7 +70,7 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	el3_state_t *state;
 	gp_regs_t *gp_regs;
 	u_register_t sctlr_elx, actlr_elx;
-
+	NOTICE("cm_setup_context\n");
 	assert(ctx != NULL);
 
 	security_state = GET_SECURITY_STATE(ep->h.attr);

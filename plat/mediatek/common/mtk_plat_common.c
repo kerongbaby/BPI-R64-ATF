@@ -99,6 +99,7 @@ void boot_to_kernel(uint64_t x1, uint64_t x2, uint64_t x3, uint64_t x4)
 
 uint32_t plat_get_spsr_for_bl33_entry(void)
 {
+	NOTICE("plat_get_spsr_for_bl33_entry\n");
 #ifdef KERNEL_IS_32BIT
 	unsigned int mode;
 	uint32_t spsr;

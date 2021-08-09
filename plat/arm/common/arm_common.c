@@ -83,7 +83,7 @@ uint32_t arm_get_spsr_for_bl33_entry(void)
 uint32_t arm_get_spsr_for_bl33_entry(void)
 {
 	unsigned int hyp_status, mode, spsr;
-
+NOTICE("arm_get_spsr_for_bl33_entry\n");
 	hyp_status = GET_VIRT_EXT(read_id_pfr1());
 
 	mode = (hyp_status) ? MODE32_hyp : MODE32_svc;
