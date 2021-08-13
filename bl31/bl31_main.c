@@ -105,7 +105,7 @@ void bl31_main(void)
 	bl31_lib_init();
 
 #if EL3_EXCEPTION_HANDLING
-	INFO("BL31: Initialising Exception Handling Framework\n");
+	NOTICE("BL31: Initialising Exception Handling Framework\n");
 	ehf_init();
 #endif
 
@@ -197,7 +197,7 @@ void __init bl31_prepare_next_image_entry(void)
 	assert(next_image_info != NULL);
 	assert(image_type == GET_SECURITY_STATE(next_image_info->h.attr));
 
-	INFO("BL31: Preparing for EL3 exit to %s world\n",
+	NOTICE("BL31: Preparing for EL3 exit to %s world\n",
 		(image_type == SECURE) ? "secure" : "normal");
 	NOTICE("bl31_prepare_next_image_entry 1\n");
 	print_entry_point_info(next_image_info);

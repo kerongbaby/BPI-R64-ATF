@@ -157,6 +157,10 @@ BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
 				${MTK_PLAT_SOC}/scu.c				\
 				${MTK_PLAT_SOC}/mtk_ar_table.c
 
+ifeq (${EL3_EXCEPTION_HANDLING},1)
+BL31_SOURCES		+=	plat/arm/common/aarch64/arm_ehf.c
+endif
+
 BL2_BASE		:=	0x201000
 CPPFLAGS		+=	-DBL2_BASE=$(BL2_BASE)
 

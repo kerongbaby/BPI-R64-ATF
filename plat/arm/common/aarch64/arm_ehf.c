@@ -5,6 +5,8 @@
  */
 
 #include <platform_def.h>
+/* ARM platforms use 3 upper bits of secure interrupt priority */
+#define ARM_PRI_BITS			3
 
 #include <bl31/ehf.h>
 

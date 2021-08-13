@@ -12,6 +12,7 @@
 #include <stdint.h>
 
 #include <arch.h>
+#include <common/ep_info.h>
 
 /*******************************************************************************
  * Forward declarations
