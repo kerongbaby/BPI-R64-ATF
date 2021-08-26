@@ -1007,14 +1007,14 @@ certtool: ${CRTTOOL}
 ${CRTTOOL}:
 	${Q}${MAKE} PLAT=${PLAT} USE_TBBR_DEFS=${USE_TBBR_DEFS} --no-print-directory -C ${CRTTOOLPATH}
 	@${ECHO_BLANK_LINE}
-	@echo "Built $@ successfully"
+	@echo "Built $@ successfully1"
 	@${ECHO_BLANK_LINE}
 
 ifneq (${GENERATE_COT},0)
 certificates: ${CRT_DEPS} ${CRTTOOL}
 	${Q}${CRTTOOL} ${CRT_ARGS}
 	@${ECHO_BLANK_LINE}
-	@echo "Built $@ successfully"
+	@echo "Built $@ successfully2"
 	@echo "Certificates can be found in ${BUILD_PLAT}"
 	@${ECHO_BLANK_LINE}
 endif
@@ -1023,14 +1023,14 @@ ${BUILD_PLAT}/${FIP_NAME}: ${FIP_DEPS} ${FIPTOOL}
 	${Q}${FIPTOOL} create ${FIP_ARGS} $@
 	${Q}${FIPTOOL} info $@
 	@${ECHO_BLANK_LINE}
-	@echo "Built $@ successfully"
+	@echo "Built $@ successfully with ${FIP_ARGS}"
 	@${ECHO_BLANK_LINE}
 
 ifneq (${GENERATE_COT},0)
 fwu_certificates: ${FWU_CRT_DEPS} ${CRTTOOL}
 	${Q}${CRTTOOL} ${FWU_CRT_ARGS}
 	@${ECHO_BLANK_LINE}
-	@echo "Built $@ successfully"
+	@echo "Built $@ successfully4"
 	@echo "FWU certificates can be found in ${BUILD_PLAT}"
 	@${ECHO_BLANK_LINE}
 endif
@@ -1039,7 +1039,7 @@ ${BUILD_PLAT}/${FWU_FIP_NAME}: ${FWU_FIP_DEPS} ${FIPTOOL}
 	${Q}${FIPTOOL} create ${FWU_FIP_ARGS} $@
 	${Q}${FIPTOOL} info $@
 	@${ECHO_BLANK_LINE}
-	@echo "Built $@ successfully"
+	@echo "Built $@ successfully with ${FWU_FIP_ARGS}"
 	@${ECHO_BLANK_LINE}
 
 fiptool: ${FIPTOOL}
