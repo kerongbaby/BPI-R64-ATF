@@ -184,6 +184,7 @@ ERRATA_A53_826319	:=	1
 ERRATA_A53_836870	:=	1
 ERRATA_A53_855873	:=	1
 
+BL31_CFLAGS += -DKERNEL_IS_32BIT
 # indicate the reset vector address can be programmed
 PROGRAMMABLE_RESET_ADDRESS	:=	1
 
