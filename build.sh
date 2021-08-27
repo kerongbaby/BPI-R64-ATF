@@ -40,15 +40,21 @@ case $1 in
 	"clean")
 		make distclean
 	;;
-	"")
-		echo "device: $DEVICE"
-		if [[ -e ~/targets/install/bin/redboot.bin ]];then
-			make distclean
+	"fip")
+		echo "FIP create for device: $DEVICE"
+		if [[ -e $BL33_BIN ]];then
 			set -e
-			make PLAT=mt7622 BL33=~/targets/install/bin/redboot.bin BOOT_DEVICE=$DEVICE all fip
+			make PLAT=mt7622 BL33=$BL33_BIN BOOT_DEVICE=$DEVICE fip
 			set +x
 		else
-			echo "u-boot.bin missing!"
+			echo $BL33_BIN " u-boot.bin missing!"
 		fi
+	;;
+	"")
+		echo "device: $DEVICE"
+		make distclean
+		set -e
+		make PLAT=mt7622 BOOT_DEVICE=$DEVICE all
+		set +x
 	;;
 esac
