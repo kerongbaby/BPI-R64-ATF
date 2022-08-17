@@ -72,7 +72,7 @@ static bl_mem_params_node_t bl2_mem_params_descs[] = {
 		SET_STATIC_PARAM_HEAD(image_info, PARAM_EP, VERSION_2,
 				      image_info_t, 0),
 		.image_info.image_base = BL33_BASE,
-		.image_info.image_max_size = 0x200000 /* 2MB */,
+		.image_info.image_max_size = 0x800000 /* 8MB */,
 
 		.next_handoff_image_id = INVALID_IMAGE_ID,
 	}
